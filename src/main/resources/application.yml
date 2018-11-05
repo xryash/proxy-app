@@ -7,9 +7,11 @@ eureka:
   instance:
     hostname: ${EUREKA_HOSTNAME:localhost:${eureka.port}}
   port: 9110
+  user: ${EUREKA_USER_NAME:user}
+  password: ${EUREKA_USER_PASSWORD:password}
   client:
     preferIpAddress: true
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}/eureka/
+      defaultZone: http://${eureka.user}:${eureka.password}@${eureka.instance.hostname}/eureka/
