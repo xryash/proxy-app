@@ -1,0 +1,15 @@
+server:
+  port: ${PORT:9111}
+spring:
+  application:
+    name: proxy-service
+eureka:
+  instance:
+    hostname: ${EUREKA_HOSTNAME:localhost:${eureka.port}}
+  port: 9110
+  client:
+    preferIpAddress: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}/eureka/
